@@ -9,7 +9,10 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+
+    id 'scala'
 }
+
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
@@ -18,8 +21,14 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:23.0'
 
+    implementation 'org.scala-lang:scala-library:2.11.12'
+    testImplementation 'org.scalatest:scalatest_2.11:3.0.0'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    // https://mvnrepository.com/artifact/org.scalatest/scalatest
+
 }
 
 // In this section you declare where to find the dependencies of your project
