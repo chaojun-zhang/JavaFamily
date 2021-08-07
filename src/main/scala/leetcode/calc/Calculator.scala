@@ -1,51 +1,71 @@
 package leetcode.calc
 
-import java.util
-
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable
 
 object Calculator {
 
-  sealed trait Expr
-  case class Parent(expr:Expr) extends Expr
-  case class Num(x:BigDecimal) extends Expr
-  case class UnaryExpr(op:String,expr:Expr) extends Expr
-  case class BinaryExpr(op:String,left:Expr,right:Expr) extends Expr
+  def apply(value: String): BigDecimal = {
 
-  def apply(value: String): String = {
+    val nums = new mutable.Stack[BigDecimal]()
+    val ops = new mutable.Stack[Char]
 
-    val parts = ArrayBuffer[String]()
+    def calc() = {
+      val op = ops.pop
+      val right = nums.pop()
+      val left = nums.pop()
+      op match {
+        case '*' => nums.push(left * right)
+        case '/' => nums.push(left / right)
+        case '+' => nums.push(left + right)
+        case '-' => nums.push(left - right)
+      }
+    }
 
-    val digit = new StringBuilder
+    val num = new mutable.StringBuilder()
     for (c <- value) {
       c match {
-        case x if x.isDigit => digit.append(x)
-        case '(' | ')' | '+' | '-' | '*' | '/' => {
-          if (!digit.isEmpty) {
-            parts.addString(digit)
-            digit.clear()
+        case x if (x >= '0' && x <= '9') => {
+          num.append(x)
+        }
+        case '(' => ops.push(c)
+        case ')' => {
+          if (num.nonEmpty) {
+            nums.push(BigDecimal(num.toString()))
+            num.clear()
           }
-          parts.append(c.toString)
+          while (ops.nonEmpty && ops.top != '(') {
+            calc()
+          }
+          ops.pop()
+        }
+        case '*' | '/' => {
+          if (num.nonEmpty) {
+            nums.push(BigDecimal(num.toString()))
+            num.clear()
+          }
+          while (ops.nonEmpty && (ops.top == '*' || ops.top == '/')) {
+            calc()
+          }
+          ops.push(c)
+        }
+        case '+' | '-' => {
+          if (num.nonEmpty) {
+            nums.push(BigDecimal(num.toString()))
+            num.clear()
+          }
+          while (ops.nonEmpty && ops.top != '(') {
+            calc()
+          }
+          ops.push(c)
         }
         case ' ' =>
-        case _=> throw new IllegalArgumentException(s"Invalid char ${c}")
+        case _ => throw new IllegalArgumentException("Invalid char")
       }
-
     }
 
-    val opStack = new util.Stack[Expr]
-    val numStack = new util.Stack[Expr]
-    var parentExpr:Parent = null
-    for (part <- parts) {
-      part match {
-        case "(" => parentExpr = Parent()
-        case "+" | "-" | "*" | "/" | "(" => opStack.push(part)
-        case _ => numStack.push(BigDecimal(part))
-      }
-
-
+    while (ops.nonEmpty && ops.top != '(') {
+      calc()
     }
-
-
+    nums.pop()
   }
 }
