@@ -16,7 +16,7 @@ object HouseRobTwo {
   }
 
   def myRob(nums:Array[Int]):Int ={
-    val dp = new Array[Int](nums.length-1)
+    val dp = new Array[Int](nums.length)
     dp(0) =  nums(0)
     dp(1) = Math.max(nums(0),nums(1))
     for (i<-2 until  nums.length) {
