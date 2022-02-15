@@ -5,7 +5,7 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
  */
-object LetterCombinations {
+object  LetterCombinations {
 
   def apply(digits: String): List[String] = {
 

@@ -23,15 +23,8 @@ object MoveZero {
 
   def apply(nums:Array[Int]) ={
     for (i<-nums.indices){
-      for (j<-0 until nums.length-1-i){
-        if (nums(j)==0){
-          swap(nums,j,nums.length-1-j)
-        }else {
-          if (nums(j)>nums(j+1)){
-            swap(nums,j,j+1)
-          }
-        }
-      }
+
+
     }
 
   }
