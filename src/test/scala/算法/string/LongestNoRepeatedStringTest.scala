@@ -1,6 +1,6 @@
 package 算法.string
 
-import 算法.动态规划.LongestNoRepeatedString
+import code.dp.LongestNoRepeatedString
 import org.junit.Assert
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite

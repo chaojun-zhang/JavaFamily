@@ -1,5 +1,6 @@
 package 算法.string
-import 算法.回溯.电话字符组合
+
+import code.backtrace.电话字符组合
 import org.junit.Assert
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite

@@ -1,6 +1,6 @@
 package 算法.string
 
-import 算法.动态规划.最长回文字符串
+import code.dp.最长回文字符串
 import org.junit.Assert
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite

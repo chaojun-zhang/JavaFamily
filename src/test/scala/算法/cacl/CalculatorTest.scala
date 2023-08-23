@@ -1,6 +1,6 @@
 package 算法.cacl
 
-import 算法.计算器.{Calculator}
+import code.calculator.Calculator
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner

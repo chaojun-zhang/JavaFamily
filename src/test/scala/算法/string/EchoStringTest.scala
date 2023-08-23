@@ -1,6 +1,6 @@
 package 算法.string
 
-import 算法.字符串.回文字符串
+import code.string.回文字符串
 import org.junit.Assert
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite

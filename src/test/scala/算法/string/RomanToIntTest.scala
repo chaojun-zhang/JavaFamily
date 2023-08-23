@@ -1,6 +1,6 @@
 package 算法.string
 
-import 算法.字符串.罗马转数字
+import code.string.罗马转数字
 import org.scalatest.FunSuite
 import org.junit.Assert
 import org.junit.runner.RunWith
