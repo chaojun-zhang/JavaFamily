@@ -1,6 +1,6 @@
 package 算法.数组;
 
-public class 移除元素 {
+public class MoveElement {
 
     public static int del(int[] a,int b ){
         int slow = 0;

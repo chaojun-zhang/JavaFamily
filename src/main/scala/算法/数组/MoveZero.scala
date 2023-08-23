@@ -4,7 +4,7 @@ import java.util
 
 import scala.collection.mutable
 
-object 移动0 {
+object MoveZero {
 
   val cache  = new util.HashMap[Int,Int]
   def tribonacci(n: Int): Int = {
