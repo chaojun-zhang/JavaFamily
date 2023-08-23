@@ -1,8 +1,5 @@
 package code.array;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ArabicToChinese {
     static String[] ch_value = new String[]{"零","一","二","三","四","五","六","七","八","九"};
 
